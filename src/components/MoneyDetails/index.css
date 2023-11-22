@@ -1,0 +1,38 @@
+/* Write your CSS here */
+.details-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.each-card {
+  display: flex;
+  flex-direction: row;
+  border-style: solid;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.color1 {
+  background-color: #ecfccb;
+  border-color: #84cc16;
+}
+.color2 {
+  background-color: #cffafe;
+  border-color: #06b6d4;
+}
+.color3 {
+  background-color: #ede9fe;
+  border-color: #7c3aed;
+}
+
+.money-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  height: 100px;
+  width: 100px;
+  margin-right: 10px;
+}
