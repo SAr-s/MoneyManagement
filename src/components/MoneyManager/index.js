@@ -79,19 +79,30 @@ class MoneyManager extends Component {
   }
 
   onDeleteItem = id => {
-    const {historyDetails, amount} = this.state
+    const {historyDetails} = this.state
 
-    const filteredDetails = historyDetails.filter(
-      eachHistory => eachHistory.id !== id,
+    const deleteTransaction = historyDetails.find(
+      eachHistory => eachHistory.id === id,
     )
+    if (deleteTransaction) {
+      const {amount, type} = deleteTransaction
+      const filteredDetails = historyDetails.filter(
+        eachHistory => eachHistory.id !== id,
+      )
 
-    this.setState({historyDetails: filteredDetails})
-
-    this.setState(prevState => ({
-      income: prevState.income - Number(amount),
-      balance: prevState.balance - Number(amount),
-      expenses: prevState.expenses - Number(amount),
-    }))
+      this.setState({historyDetails: filteredDetails})
+      if (type === 'Income') {
+        this.setState(prevState => ({
+          income: prevState.income - Number(amount),
+          balance: prevState.balance - Number(amount),
+        }))
+      } else {
+        this.setState(prevState => ({
+          expenses: prevState.expenses - Number(amount),
+          balance: prevState.balance + Number(amount),
+        }))
+      }
+    }
   }
 
   render() {
