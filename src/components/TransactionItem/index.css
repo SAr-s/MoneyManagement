@@ -4,3 +4,6 @@
   flex-direction: row;
   justify-content: space-around;
 }
+.item-para {
+  margin-right: 10px;
+}
